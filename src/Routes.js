@@ -11,9 +11,12 @@ import AdminDashboard from "./user/AdminDashboard";
 // import AddClinic from "./admin/AddClinic";
 import AddClinic from "./core/AddClinic";
 import AddClinicUser from "./core/AddClinicUser";
+import AddVendorUser from "./core/AddVendorUser";
 import AddJane from "./core/AddJane2";
 import AddCategory from './admin/AddCategory'
+import AddCapacity from './admin/AddCapacity'
 import AddProduct from "./admin/AddProduct";
+import AddVendor from "./admin/AddVendor";
 import UpdateProduct from "./admin/UpdateProduct";
 import Shop from './core/Shop'
 import Clinic from "./core/Clinic";
@@ -34,6 +37,7 @@ const Routes = () => {
           <Route path="/create/jane" exact component={AddJane} />
           <Route path="/create/clinic" exact component={AddClinic} />
           <Route path="/create/clinic/user" exact component={AddClinicUser} />
+          <Route path="/create/vendor/user" exact component={AddVendorUser} />
           <Route path="/clinic" exact component={Clinic} />
           <Route path="/" exact component={Home} />
           
@@ -44,7 +48,9 @@ const Routes = () => {
           <AdminRoute path="/admin/dashboard" exact component={AdminDashboard}/>
 
           <AdminRoute path="/create/category" exact component={AddCategory} />
+          <AdminRoute path="/create/capacity" exact component={AddCapacity} />
           <AdminRoute path="/create/product" exact component={AddProduct} />
+          <AdminRoute path="/create/vendor" exact component={AddVendor} />
           <AdminRoute path="/admin/orders" exact component={Orders} />
           <Route path="/cart" exact component={Cart} />
         </Switch>

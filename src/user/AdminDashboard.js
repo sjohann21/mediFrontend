@@ -4,9 +4,8 @@ import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
-  const {
-    user: { _id, name, email, role }
-  } = isAuthenticated();
+  
+  const {user: { _id, name, email, role }} = isAuthenticated();
 
   const adminLinks = () => {
     return (
@@ -32,6 +31,15 @@ const AdminDashboard = () => {
             </Link>
           </li> 
           <li className="list-group-item">
+            <Link className="nav-link" to="/create/vendor">
+              Create Vendor
+            </Link>
+            <Link className="nav-link" to="/create/vendor/user">
+              Create Vendor User
+            </Link>
+          </li> 
+
+          <li className="list-group-item">
             <Link className="nav-link" to="/admin/orders">
               View Orders
             </Link>
@@ -39,6 +47,11 @@ const AdminDashboard = () => {
           <li className="list-group-item">
             <Link className="nav-link" to="/admin/products">
               Manage Products
+            </Link>
+          </li>
+          <li className="list-group-item">
+            <Link className="nav-link" to="/create/capacity">
+              Transporation - Capacity
             </Link>
           </li>
         </ul>

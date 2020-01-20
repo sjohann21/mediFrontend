@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout";
 import { Link } from "react-router-dom";
 // import { createClinic } from "./apiAdmin";
-import { addClinicUser, getClinics, getCategories } from "../auth";
+import { addClinicUser, getClinics } from "../auth";
 import { API } from "../config";
 
 const AddClinicUser = () => {
@@ -29,7 +29,7 @@ const AddClinicUser = () => {
       if(data.error) {
         setValues({ ...values, error: data.error })
       } else {
-        setValues({ ...values, clinics: data})
+        setValues({ ...values, clinics: data, clinic})
       }
     })
     fetch(`${API}/clinics`, {
@@ -69,16 +69,16 @@ const AddClinicUser = () => {
       } else {
         setValues({
           ...values,
-          clinics,
-          clinic, 
-          fname, 
-          lname, 
-          email, 
-          password,
-          phone, 
-          phone2,
-          role, 
-          error,
+          clinics: "",
+          clinic: "",
+          fname: "",
+          lname: "",
+          email: "",
+          password: "",
+          phone: "",
+          phone2: "",
+          role: "",
+          error: "",
           success: true
         });
         console.log("*** clinic", clinic)

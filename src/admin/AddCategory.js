@@ -3,6 +3,8 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { createCategory } from "./apiAdmin";
+import Categories from './Categories';
+
 
 const AddCategory = () => {
   const [name, setName] = useState("");
@@ -23,7 +25,6 @@ const AddCategory = () => {
     setSuccess(false);
     // make request to api to create category
     createCategory(user._id, token, { name }).then(data => {
-      console.log("user._id = ", user._id);
       if (data.error) {
         setError(true);
       } else {
@@ -52,9 +53,6 @@ const AddCategory = () => {
           <td>{goBack()}</td>
         </tr>
       </table>
-
-
-
     </form>
   );
 
@@ -90,6 +88,9 @@ const AddCategory = () => {
           {newCategoryForm()}
           {/* {goBack()} */}
         </div>
+      </div>
+      <div className="container">
+      <Categories />
       </div>
     </Layout>
   );

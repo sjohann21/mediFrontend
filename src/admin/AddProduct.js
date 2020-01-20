@@ -1,4 +1,3 @@
-//AddProcuct
 import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
@@ -7,7 +6,6 @@ import { createProduct, getCategories } from "./apiAdmin";
 import { getClinics } from "../auth";
 
 const AddProduct = () => {
-
     //State
     const [values, setValues] = useState({
         name: '',
@@ -87,9 +85,8 @@ const AddProduct = () => {
                 setValues({...values, error: data.error})
             }else {
                 setValues({
-                    ...values, name: '', description: '', photo: '', price: '',
-                    quantity: '',
-                    loading: false,
+                    ...values, name: '', description: '', photo: '', 
+                    price: '', quantity: '', loading: false,
                     createdProduct: data.name
                 })
             }
@@ -100,14 +97,12 @@ const AddProduct = () => {
       <form className="mb-3" onSubmit={clickSubmit}>
         <h4>Post Photo</h4>
         <div className="form-group">
-          {/* <label className="btn btn-secondary"> */}
             <input
               onChange={handleChange("photo")}
               type="file"
               name="photo"
               accept="image/*"
             />
-          {/* </label> */}
         </div>
 
         <div className="form-group">

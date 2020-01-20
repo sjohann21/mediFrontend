@@ -1,4 +1,3 @@
-
 import { API } from "../config";
 
 //const signup = (name,email,password) => {
@@ -107,6 +106,27 @@ export const addClinic = clinic => {
     });
 };
 
+export const addVendorUser = vendorUser => {
+  console.log("*** auth/index.js addVendorUser ")
+  console.log("vendorUser = ", vendorUser)
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGVjMTZjZTdjYzk1NTFmOGE4MDZlNDQiLCJpYXQiOjE1Nzg4ODc1MDJ9.aQ1 - pusqcxxgBMzRHgiUMIgbQwGQfGgxCpaCHRc6eV0'
+  return fetch(`${API}/create/vendor/user`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(vendorUser)
+  })
+    .then(response => {
+      console.log(".then return =: ")
+      return response.json(vendorUser);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 export const addClinicUser = clinicUser => {
   console.log("*** auth/index.js addClinicUser ")
   console.log("clinicUser = ", clinicUser)
@@ -115,8 +135,7 @@ export const addClinicUser = clinicUser => {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(clinicUser)
   })
@@ -128,6 +147,27 @@ export const addClinicUser = clinicUser => {
       console.log(err);
     });
 };
+
+export const getCapacities = () => {
+  return fetch(`${API}/capacities`, {
+    method: 'GET'
+  })
+    .then(response => {
+      return response.json()
+    })
+    .catch(err => console.log(err))
+}
+
+export const getVendors = () => {
+  return fetch(`${API}/vendors`, {
+    method: 'GET'
+  })
+    .then(response => {
+      return response.json()
+    })
+    .catch(err => console.log(err))
+}
+
 
 export const getClinics = () => {
   return fetch(`${API}/clinics`, {
